@@ -15,7 +15,7 @@ cd public
 git add .
 
 # Commit changes.
-msg="hugo: rebuilding site $(date)"
+msg="hugo: rebuild site $(date)"
 if [ -n "$*" ]; then
 	msg="$*"
 fi
@@ -24,3 +24,8 @@ git commit -m "$msg"
 # Push source and build repos.
 git push origin master
 
+cd ..
+
+git add public
+git commit -m "public: rebuild site"
+git push
